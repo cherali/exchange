@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { Global, css } from '@emotion/react'
+import { pallete } from './pallete'
 
 const resetStyle = css`
   html, body, div, span, applet, object, iframe,
@@ -47,10 +48,18 @@ const resetStyle = css`
   }
 `
 
+const styles = css`
+  * {
+    font-family: 'Ubuntu', 'sans-serif' !important;
+    color: ${pallete.black.main};
+  }
+`
+
 const MainStyles: FC = () => {
   return (
     <>
       <Global styles={resetStyle} />
+      <Global styles={styles} />
     </>
   )
 }
