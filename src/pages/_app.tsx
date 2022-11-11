@@ -1,14 +1,17 @@
 import type { AppProps } from 'next/app'
 import { EmotionCacheProvider, MainStyles, ThemeProvider } from 'theme'
+import StateManagerProvider from 'providers/StateManagerProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <EmotionCacheProvider>
-      <ThemeProvider>
-        <MainStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </EmotionCacheProvider>
+    <StateManagerProvider>
+      <EmotionCacheProvider>
+        <ThemeProvider>
+          <MainStyles />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </EmotionCacheProvider>
+    </StateManagerProvider>
   )
 }
 
