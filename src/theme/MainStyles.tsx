@@ -53,6 +53,12 @@ const styles = css`
     font-family: 'Ubuntu', 'sans-serif' !important;
     color: ${pallete.black.main};
   }
+  a {
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    } 
+  }
 `
 
 const MainStyles: FC = () => {

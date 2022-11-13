@@ -3,13 +3,16 @@ import type { IPallete } from './index.d'
 export const pallete: IPallete = {
   primary: {
     main: '#ffffff',
+    lightest: '#f8f8f8',
     light: '#f7f7f7',
     dark: '#bbbdbf',
     darkest: '#696969',
   },
   black: {
     main: '#000000',
+    lightest: '#b2b2b2',
     light: '#767779',
+    dark: '#2b2c2f',
   },
   white: '#ffffff',
   gray: {
