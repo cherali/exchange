@@ -1,0 +1,1 @@
+export const getExchangesListUrl = '/v3/exchangeInfo'
