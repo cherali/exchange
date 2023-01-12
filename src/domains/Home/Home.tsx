@@ -12,7 +12,7 @@ import type { HomePageProps, Market, MarketTicker, MarketTickerSocketData } from
 
 const HomePage: FC<HomePageProps> = ({ marketsList }) => {
   const socketData = useMemo(() => ({
-    id: '!miniTicker@arr@3000',
+    id: '!miniTicker@arr@500',
     base: '',
     quote: '',
   }), [])
@@ -55,7 +55,7 @@ const HomePage: FC<HomePageProps> = ({ marketsList }) => {
       Cell: ({ quoteAssetPrecision, symbol }) => {
         const market = marketTicker?.[symbol]
         return <>
-          <Price>{(Number(market?.l || 0)).toFixed(quoteAssetPrecision)}</Price>
+          <Price>{(Number(market?.low || 0)).toFixed(quoteAssetPrecision)}</Price>
         </>
       }
     },
@@ -74,7 +74,7 @@ const HomePage: FC<HomePageProps> = ({ marketsList }) => {
       Cell: ({ quoteAssetPrecision, symbol }) => {
         const market = marketTicker?.[symbol]
         return <>
-          <Price>{(Number(market?.h || 0)).toFixed(quoteAssetPrecision)}</Price>
+          <Price>{(Number(market?.high || 0)).toFixed(quoteAssetPrecision)}</Price>
         </>
       }
     },
@@ -91,7 +91,7 @@ const HomePage: FC<HomePageProps> = ({ marketsList }) => {
       header: 'Chg%',
       Cell: ({ symbol }) => {
         const market = marketTicker?.[symbol]
-        return <ChangeValue>{(Number(market?.c || 0) - Number(market?.o || 0)).toFixed(2)}</ChangeValue>
+        return <ChangeValue>{Number(market?.changePercent || 0).toFixed(2)}</ChangeValue>
       }
     },
     {
@@ -104,15 +104,12 @@ const HomePage: FC<HomePageProps> = ({ marketsList }) => {
 
 
   useEffect(() => {
-    subscribeTicker<MarketTickerSocketData>(socketData, tickers => {
-      // convert to object
-      const newData: MarketTicker = {}
-      tickers.forEach(ticker => {
-        newData[ticker.s] = ticker
-      })
+    const tickers = marketsList?.slice(0, landingMarkeCountLimit).map(tic => `${tic.baseAsset}/${tic.quoteAsset}`)
 
-      setMarketTicker(s => ({ ...s, ...newData }))
+    subscribeTicker<MarketTickerSocketData>(socketData, tickers, ticker => {
+      setMarketTicker(s => ({ ...s, [`${ticker.base}${ticker.quote}`]: ticker }))
     })
+
     return () => {
       unsubscribeTicker(socketData)
     }

@@ -1,12 +1,13 @@
 import { FC, useEffect } from 'react'
-import { BinanceClient } from "ccxws"
+import { BinanceClient } from "ccxws-client"
 import { SocketContext } from './SocketProviderContext'
 import type { SocketProviderProps, SubscribeTicker, UnSubscribeTicker } from './index.d'
 
 const SocketProvider: FC<SocketProviderProps> = ({ children }) => {
-  const binance = new BinanceClient({ watcherMs: 3000 });
+  const binance = new BinanceClient()
 
-  const subscribeTicker: SubscribeTicker = (market, handler) => {
+  const subscribeTicker: SubscribeTicker = (market, tickers, handler) => {
+    binance.setMarketMap(tickers);
     binance.on("ticker", handler)
     binance.subscribeTicker(market)
   }

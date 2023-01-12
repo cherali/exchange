@@ -11,7 +11,7 @@ export interface SocketMarketItem {
 }
 
 
-export type SubscribeTicker = <T extends object>(market: SocketMarketItem, handler: (args: Array<T>, market: any) => void) => void
+export type SubscribeTicker = <T extends object>(market: SocketMarketItem, tickers?: string[], handler: (args: T, market: any) => void) => void
 
 export type UnSubscribeTicker = (market: SocketMarketItem) => void
 

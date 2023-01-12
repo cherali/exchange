@@ -28,15 +28,24 @@ export interface GetMarketsListParams {
 }
 
 export interface MarketTickerSocketData {
-  E: number;      // Event time
-  c: string;      // Close price
-  e: string;      // Event type
-  h: string;      // High price
-  l: string;      // Low price
-  o: string;      // Open price
-  q: string;      // Total traded quote asset volume
-  s: string;      // Symbol
-  v: string;      // Total traded base asset volume
+  ask: string
+  askVolume: string
+  base: string
+  bid: string
+  bidVolume: string
+  change: string
+  changePercent: string
+  exchange: string
+  high: string
+  last: string
+  low: string
+  open: string
+  quote: string
+  quoteVolume: string
+  sequenceId?: string | number
+  timestamp: string
+  volume: string
+  fullId: string
 }
 
 export type MarketTicker = Record<string, MarketTickerSocketData>
