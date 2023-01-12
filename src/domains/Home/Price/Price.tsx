@@ -27,9 +27,9 @@ const Price: FC<PriceProps> = ({ children }) => {
 
 
   const PriceCmp = useMemo(() => () => (
-    <StyledPrice color={priceValues.color}>
+    <StyledPrice stopAnimation={prevValue === undefined || prevValue == 0} color={priceValues.color}>
       {children}
-      <Caret arrowDirection={priceValues.direction} color={priceValues.color} />
+      <Caret stopAnimation={prevValue === undefined || prevValue == 0} arrowDirection={priceValues.direction} color={priceValues.color} />
     </StyledPrice>
   ), [prevValue])
 
