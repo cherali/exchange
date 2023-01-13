@@ -662,10 +662,10 @@ caniuse-lite@^1.0.30001406:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001431.tgz#e7c59bd1bc518fae03a4656be442ce6c4887a795"
   integrity sha512-zBUoFU0ZcxpvSt9IU66dXVT/3ctO1cy4y9cscs1szkPlcWb6pasYM144GqrUygUbT+k7cmUCW61cvskjcv0enQ==
 
-ccxws-client@0.47.1:
-  version "0.47.1"
-  resolved "https://npm.iranrepo.ir/api/npm/npm-all/ccxws-client/-/ccxws-client-0.47.1.tgz#bcd1b257fd712569d0a2a6a54d7c45d38054111f"
-  integrity sha1-vNGyV/1xJWnQoqalTXxF04BUER8=
+ccxws-client@0.47.2:
+  version "0.47.2"
+  resolved "https://npm.iranrepo.ir/api/npm/npm-all/ccxws-client/-/ccxws-client-0.47.2.tgz#74460dbfbd6a4571225e8900eb4f4c4ff03bf6be"
+  integrity sha1-dEYNv71qRXEiXokA609MT/A79r4=
   dependencies:
     crc "3.8.0"
     decimal.js "10.2.0"
