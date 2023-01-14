@@ -1,4 +1,6 @@
-## exchange app with binance api
+## Exchange App with Binance API
+
+Show Markets with socket update using Binance API.
 
 #### Run (Development)
 ```bash
